@@ -32,7 +32,7 @@ int main()
         {
             
             printf( "\n   Introduzca opción (1-4): ");
-            fflush( stdin );
+            fflush( stdin ); /* Se tiene que tener especial cuidado si utilizados scanf para leer caracteres.Para resolver este problema, antes de leer un carácter con scanf, hay que vaciar (limpiar) el buffer del teclado. Para ello, se utiliza la función fflush.Puedes ampliar informacion en http://www.carlospes.com/curso_de_lenguaje_c/01_11_la_funcion_fflush.php */
             scanf( "%c", &opcion );
             
         } while ( opcion < '1' || opcion > '4' );
