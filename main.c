@@ -25,7 +25,7 @@ int main()
     {
         printf( "\n   1. Calcular el IMC.");
         printf( "\n   2. Convertir un número entero entre 1 y 3500 a número Romano.");
-        printf( "\n   3. Introducir uno o varios sueldos, establecer cuál es el billete más grande a utilizar \n y que nos diga los billetes y monedas en que se descompone.");
+        printf( "\n   3. Introducir uno o varios salarios, establecer cuál es el billete más grande a utilizar \n y que nos diga los billetes y monedas en que se descompone.");
         printf( "\n   4. Salir." );
         
         do
