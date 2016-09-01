@@ -46,6 +46,7 @@ int main()
 
             case 2: printf( "\n   Convertir un número entero entre 1 y 3500 a número Romano.");
                       /* LLamar al fichero para ejecutar la conversión. */
+                      Decimal_Romano_3500();
                       printf( "\n   Hemos concluido la conversión a número Romano. \n");
                       break;
 
