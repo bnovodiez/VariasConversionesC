@@ -21,7 +21,8 @@ double f_round();
 /*
  * 
  */
-int main() 
+/* int main()*/
+int SalarioXBilletes()
 {
 int num,n,pb,bv,J,C,vop;
 int nubilletes, numonedas, numcentimos, Salariocentimos, valorcentimos;
