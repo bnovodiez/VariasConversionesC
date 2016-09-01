@@ -1,0 +1,101 @@
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+// declaramos variables e inicializamos las mismas
+char rep;
+int correcto=-1;
+char nombre[100];
+char apellido1[100];
+char apellido2[100];
+int sueldo;
+int monedas50,monedas20,monedas10,monedas5,monedas2c,monedas1c;
+
+
+int centinela=1;
+int main(){  
+    while (centinela==1){ // bucle que se ejecuta siempre que se quiere hacer un nuevo desglose
+        correcto=-1;
+        while (correcto==-1){ // bucle que se realiza mientras los datos no son correctos
+            // inicio de variables
+            monedas50=0,monedas20=0,monedas10=0,monedas5=0;
+            monedas2c=0,monedas1c=0;
+            // introduce nombre del trabajador
+            printf( "Introduce el nombre del trabajador..." ); 
+            scanf( "%s", &nombre ); 
+             // introduce primer apellido del trabajador
+            printf( "Introduce el primer apellido del trabajador..." ); 
+            scanf( "%s", &apellido1);
+             // introduce segundo apeellido del trabajador
+            printf( "Introduce el segundo apellido del trabajador..." ); 
+            scanf( "%s", &apellido2 ); 
+            //introduce el sueldo del mismo
+            printf( "Introduce los céntimos del sueldo del trabajador en formato sólo los céntimos \n" ); 
+            scanf( "%d", &sueldo );
+            
+            if (sueldo>=100){
+                printf ("No puede haber más de dos decimales, introduzca la cantidad correcta\n");
+                correcto=-1;
+            }
+            else {
+                correcto=1;
+            }
+            
+        }
+            
+        // seguimos con el desglose, ahora con la parte decimal que dara las monedas de centimos correspondientes
+        // se calcula el numero de monedas
+        monedas50=sueldo/50;
+        // se calcula el resto
+        sueldo=sueldo -(monedas50*50);
+        // se calcula el numero de monedas
+        monedas20=sueldo/20;
+        // se calcula el resto
+        sueldo=sueldo -(monedas20*20);
+        // se calcula el numero de monedas
+        monedas10=sueldo/10;
+        // se calcula el resto
+        sueldo=sueldo -(monedas10*10);
+        // se calcula el numero de monedas
+        monedas5=sueldo/5;
+        // se calcula el resto
+        sueldo=sueldo -(monedas5*5);
+        // se calcula el numero de monedas
+        monedas2c=sueldo/2;
+        // se calcula el resto
+        sueldo=sueldo -(monedas2c*2);
+         // el resto seran las monedas de 1 centimo que faltan
+        monedas1c=sueldo;
+        // imprimimos el desglose
+        printf("El trabajador %s %s %s, el desglose de su sueldo es\n",nombre,apellido1,apellido2);
+        printf("El numero de monedas de 0,50 euros..%i\n",monedas50); 
+        printf("El numero de monedas de 0,20 euros..%i\n",monedas20); 
+        printf("El numero de monedas de 0,10 euros..%i\n",monedas10);
+        printf("El numero de monedas de 0,05 euros..%i\n",monedas5); 
+        printf("El numero de monedas de 0,02 euros..%i\n",monedas2c);
+        printf("El numero de monedas de 0,01 euros..%i\n",monedas1c); 
+        getchar();
+        // preguntamos si se desea realizar un nuevo desglose
+        while (1){
+            printf( "\nDesea calcular otro desglose (s/n)... " ); 
+            scanf( "%c", &rep );
+            if (rep=='s'|| rep=='S'){
+                centinela== 1;
+                break;
+            }
+            if (rep=='n'|| rep=='N'){
+                centinela=-1;
+                break;
+            }
+            else{
+                printf( "La respuesta no es correcta (S/N)\n " );
+                getchar();
+     
+            }
+        }
+    }
+    printf( "FIN DE PROGRAMA\n " );
+} 
+
+
+
