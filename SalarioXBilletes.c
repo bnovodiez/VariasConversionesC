@@ -23,20 +23,20 @@ double f_round();
  */
 int main() 
 {
-int num,n,pb,bv,J,C;
+int num,n,pb,bv,J,C,vop;
 int nubilletes, numonedas, numcentimos, Salariocentimos, valorcentimos;
 double Salarioentero;
 int billete;
-char stringNum [4], salario[8], opcion;
+char stringNum [4], salario[8], opcion [2];
 /* Variables Billetes, Monedas de euros y centimos. */
 const int billetes[]={500,200,100,50,20,10,5};
 const int monedas[]={2,1};
 const int centimos[]={50,20,10,5,2,1};
 /* Variables totales de billetes, monedas y salarios sumados */
-int cb500, cb200, cb100, cb50, cb20, cb10, cb5;
-int cm2, cm1;
-int cc50, cc20, cc10, cc5, cc2, cc1;
-double ts;
+int cb500 = 0, cb200= 0, cb100 = 0, cb50 = 0, cb20 = 0, cb10 = 0, cb5 = 0;
+int cm2 = 0, cm1 = 0;
+int cc50 = 0, cc20 = 0, cc10 = 0, cc5 = 0, cc2 = 0, cc1 = 0;
+double ts = 0;
 
 do
     {
@@ -45,16 +45,17 @@ do
         printf( "\n   3. Salir.");
                 
         do
-        {
+        { 
             printf( "\n   Introduzca opción (1-3): ");
-            fflush( stdin ); /* Se tiene que tener especial cuidado si utilizamos scanf para leer caracteres.Para resolver este problema, antes de leer un carácter con scanf, hay que vaciar (limpiar) el buffer del teclado. Para ello, se utiliza la función fflush.Puedes ampliar informacion en http://www.carlospes.com/curso_de_lenguaje_c/01_11_la_funcion_fflush.php */
-            scanf( "%c", &opcion );
-            
-        } while ( opcion < '1' || opcion > '3' );
-
-        switch ( opcion )
+            fflush(stdin); /* Se tiene que tener especial cuidado si utilizamos scanf para leer caracteres.Para resolver este problema, antes de leer un carácter con scanf, hay que vaciar (limpiar) el buffer del teclado. Para ello, se utiliza la función fflush.Puedes ampliar informacion en http://www.carlospes.com/curso_de_lenguaje_c/01_11_la_funcion_fflush.php */
+            scanf("%s",&opcion );
+            vop = atoi(opcion);
+        } while ( vop < 1 || vop > 3 );
+        
+        switch (vop)
         {
-            case'1':
+            /*case'1':*/
+            case 1:
 
 /* Solicitamos y validamos el valor a descomponer en billetes y monedas. */
 do{
@@ -171,7 +172,7 @@ for (C=0; C<6; C++)
         
         
         break; /* Break del CASE1 */
-        case'2':
+        case 2:
             printf("\n La cantidad total a solicitar al banco es de %.2f", ts);
             printf("\n El desglose a solicitar al banco es el siguiente: \n");
             printf ("\n Se necesitan %d billetes de 500 Euros", cb500);
@@ -190,9 +191,13 @@ for (C=0; C<6; C++)
             printf ("\n Se necesitan %d Monedas de 2 Centimos", cc2);
             printf ("\n Se necesitan %d Monedas de 1 Centimos", cc1);
             ts = 0.00; /* Se vacia para proximo uso del algoritmo de menú. */
+            cb500 = 0, cb200= 0, cb100 = 0, cb50 = 0, cb20 = 0, cb10 = 0, cb5 = 0;
+            cm2 = 0, cm1 = 0;
+            cc50 = 0, cc20 = 0, cc10 = 0, cc5 = 0, cc2 = 0, cc1 = 0;
+            
             break;
         }   
-}    while (opcion != '3') ;
+}    while (vop != 3) ;
 return (0);
 }
 
