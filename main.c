@@ -19,7 +19,7 @@
 int main()
 {
     char opcion [2];
-    int n, vop;
+    int vop;
 
     do
     {
@@ -41,6 +41,7 @@ int main()
         {
             case 1: printf( "\n   Calcular el IMC.");
                       /* Llamar al fichero IMC. */
+                      CalculoIMC();
                       printf( "\n   Hemos concluido el calculo del IMC. \n");
                       break;
 
