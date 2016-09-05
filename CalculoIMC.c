@@ -93,7 +93,11 @@ int vsex = 0;// incializo la variable...es necesario.
 int numCarac = strlen(sex); 
 
 for( i = 0; i < numCarac; i++) 
-{ 
+{
+    if (numCarac != 1) {
+        vsex=0;
+        break;
+    }
     if((sex[i]=='H') || (sex[i]=='h')|| (sex[i]=='M') || (sex[i]=='m')) 
     {  
         vsex = 1;
