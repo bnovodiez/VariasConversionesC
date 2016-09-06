@@ -121,13 +121,8 @@ int validarEntrada(char nom[])
 
     for( i = 0; i < numCarac; i++) 
     { 
-        if(isalpha(nom[i])) 
-        {  
+        if (!isdigit(nom[i]) && (nom[i])!=46) {
             valido = 1;
-            break;
-        }else if(isdigit(nom[i])) 
-        {  
-            valido = 0;
             break;
         }
     }
