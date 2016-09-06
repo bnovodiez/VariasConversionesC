@@ -64,7 +64,7 @@ do{
     fflush(stdin);
     scanf("%s",&salario);
     Salarioentero = strtof (salario, NULL);
-} while(Salarioentero<0 || Salarioentero>9999 || validarEntrada(salario)!=0);
+} while(Salarioentero<0 || Salarioentero>9999 || validasEntrada(salario)!=0);
 
 /* Solicitamos y validamos el valor de billete más alto a utilizar para descomponer. */
     do{
@@ -201,25 +201,3 @@ for (C=0; C<6; C++)
 }    while (vop != 3) ;
 return (0);
 }
-
-
-/* Función para validar la entrada sea un numero incluido decimal con un punto,
- *  no es valido para coma y no tiene en cuanta si se introducen dos veces un punto, por ej 5.6.7 daría valido.
- La función recibe la variable nom y devuelve la variable valido en uno si es un numero decimal de lo contrario devuelve valido en cero.*/
-int validarEntrada(char nom[]) 
-{ 
-int i = 0; 
-int valido = 0;// incializo la variable...es necesario.
-int numCarac = strlen(nom); 
-
-for( i = 0; i < numCarac; i++) 
-{ 
-    if((!isdigit(nom[i]))&& (nom[i]!=46)) 
-    {  
-        valido = 1;
-        break;
-    } 
-} 
-
-return valido; 
-} 
